@@ -1,0 +1,213 @@
+@import 'transitions';
+@import 'mixins';
+
+body
+{
+    background-color:#000;
+    color:#777;
+    text-align:center;
+}
+html, body{ height:100%; margin:0; padding:0; }
+body, #bodyWrap{ min-height:100%; }
+
+#bodyWrap{
+    height:auto !important;
+    height:100%;
+    margin:0 auto -145px;
+}
+#myCanvas{
+    position:absolute;
+    z-index:0;
+}
+body *{
+    z-index:1;
+}
+
+/* smaller elements */
+h1{ color:#fff; }
+
+
+/* misc. classes */
+.clear{ clear:both; }
+.faded{ opacity:0; }
+.iBlock{ display:inline-block; }
+.posRel{ position:relative; }
+
+#header{
+    @include ThreeColorGradient(#555, #eee, #333);
+    border:1px solid #555;
+    border-width:0 0 2px;
+    background-color:#555;
+    width:100%;
+
+    h1{
+        color:#999;
+        font-family:'Exo 2', sans-serif;
+        margin-top:10px;
+        text-shadow:2px 2px #555;
+    }
+}
+
+
+#cWrap{
+
+}
+#content{
+    background-color:#000;
+
+    /* starship elements */
+    $starshipSize: 150px;
+
+    #shipDiv{
+        margin-top:25px;
+
+        .starship{
+            background-size: 100% 100%;
+            height:$starshipSize;
+            position:absolute;
+            width:$starshipSize;
+
+            .hitArea{
+                cursor:pointer;
+            }
+        }
+
+        #cloak{
+            background:url(../img/cloak.png) $imgSpec;
+            background-size: 100% 100%;
+            left:-170px;
+            top:40px;
+
+            .hitArea{
+                margin:40% 0 0 9%;
+                height:25%;
+                width:75%;
+                @include rotateObj(-23deg);
+            }
+        }
+        #ghost{
+            background:url(../img/ghost.png) $imgSpec;
+            background-size: 100% 100%;
+            left:40%;
+            top:30px;
+
+            .hitArea{
+                margin:21% 0 0 14%;
+                height:41%;
+                width:75%;
+                @include rndCorners(50px);
+            }
+        }
+        #scout{
+            background:url(../img/scout.png) $imgSpec;
+            background-size: 100% 100%;
+            right:-100px;
+            top:10px;
+
+            .hitArea{
+                margin:32% 0 0 14%;
+                height:41%;
+                width:73%;
+            }
+        }
+    }
+
+    #rocketAnim{
+        z-index:-1;
+    }
+
+}
+
+
+#navBar{
+    position:relative;
+
+    #scoreBoard{ margin-top: 10px; }
+    #shipDetails{
+        > div{
+            margin-bottom:15px;
+            text-align:center;
+
+            > div{
+                margin:0 auto;
+                width:50%;
+            }
+
+            .hdr{
+                @include ThreeColorGradient(#555, #999, #333);
+                @include setBorder(1px solid #999, 5px 5px 0 0);
+                color:#212A94;
+                font-weight:bold;
+            }
+            .wrap{
+                @include setBorder(1px solid #999, 0 0 5px 5px);
+                background-color:#000;
+                text-align:left;
+
+                > div{
+                    padding:0 5px;
+                }
+            }
+
+            .dynTxt{ color:#ff0; }
+        }
+    }
+}
+
+
+#footer{
+    clear:both;
+    height:auto;
+    min-height:145px;
+    position:relative;
+
+    /* navBar elements */
+    #playerConsole{
+        padding-bottom:10px;
+        text-align:center;
+
+         .hdr{
+            margin:0 auto;
+            width:80%;
+
+            div{
+                @include ThreeColorGradient(#555, #eee, #333);
+                border:1px solid #ccc;
+                border-radius:5px;
+                color:#222;
+                font-weight:bold;
+                margin:0 0 10px;
+                padding:2px 0;
+            }
+        }
+
+        .btn{
+            border:1px solid #999;
+            cursor:pointer;
+            display:inline-block;
+            height:75px; width:75px;
+        }
+    }
+    #rocketBtn{
+        background: url(../img/rocketBtn.png) $imgSpec;
+        &:hover{
+            background-image: url(../img/rocketBtnGlow.png) !important;
+        }
+    }
+    #laserBtn{
+        background: url(../img/laserBtn.png) $imgSpec;
+        &:hover{
+            background-image: url(../img/laserBtnGlow.png) !important;
+        }
+    }
+
+    #playerTurret{
+        position:absolute;
+    }
+}
+
+
+
+
+
+

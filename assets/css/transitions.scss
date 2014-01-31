@@ -1,0 +1,66 @@
+$quickSec: 1s;
+$fadeIn: opacity 2s ease-in;
+$outerShipPos: 5%;
+
+@mixin shipAnimation($transTime){
+    -webkit-transition: $transTime;
+    -moz-transition: $transTime;
+    transition: $transTime;
+}
+
+@mixin scaleImg($outerShipPos){
+    transform: scale($outerShipPos);
+    -webkit-transform: scale($outerShipPos);
+    -moz-transform: scale($outerShipPos);
+    -ms-transform: scale($outerShipPos);
+}
+
+@mixin rotateObj($deg){
+    transform: rotate($deg);
+    -webkit-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -ms-transform: rotate($deg);
+}
+
+@mixin setBorder($brdr, $bRadius){
+    border: $brdr;
+    border-radius: $bRadius;
+}
+
+.destructAnim{
+    animation:showExplosion1 1.2s forwards;
+    -webkit-animation:showExplosion1 1.2s forwards;
+}
+    @keyframes showExplosion1
+    {
+        0%  {@include scaleImg(0)}
+        1%  {@include scaleImg(0.5)}
+        50% {@include scaleImg(1)}
+        80% {opacity:0.5}
+        100%{opacity:0}
+    }
+    @-webkit-keyframes showExplosion1 /* Safari and Chrome */
+    {
+        0%  {@include scaleImg(0)}
+        1%  {@include scaleImg(0.5)}
+        50% {@include scaleImg(1)}
+        80% {opacity:0.5}
+        90% {@include scaleImg(0.8)}
+        100%{opacity:0}
+    }
+
+
+.cloakAnim {
+    @include shipAnimation(0.7s);
+    left: $outerShipPos !important;
+}
+.scoutAnim{
+    @include shipAnimation(0.3s);
+    right:$outerShipPos !important;
+    opacity:1;
+}
+.ghostAnim{
+    opacity:0;
+    @include shipAnimation($fadeIn);
+    opacity:1;
+}

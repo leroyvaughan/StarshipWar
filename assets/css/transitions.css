@@ -1,0 +1,80 @@
+.destructAnim {
+  animation: showExplosion1 1.2s forwards;
+  -webkit-animation: showExplosion1 1.2s forwards; }
+
+@keyframes showExplosion1 {
+  0% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0); }
+
+  1% {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5); }
+
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1); }
+
+  80% {
+    opacity: 0.5; }
+
+  100% {
+    opacity: 0; } }
+
+@-webkit-keyframes showExplosion1 {
+  0% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0); }
+
+  1% {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5); }
+
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1); }
+
+  80% {
+    opacity: 0.5; }
+
+  90% {
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8); }
+
+  100% {
+    opacity: 0; } }
+
+.cloakAnim {
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  transition: 0.7s;
+  left: 5% !important; }
+
+.scoutAnim {
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+  right: 5% !important;
+  opacity: 1; }
+
+.ghostAnim {
+  opacity: 0;
+  -webkit-transition: opacity 2s ease-in;
+  -moz-transition: opacity 2s ease-in;
+  transition: opacity 2s ease-in;
+  opacity: 1; }
+

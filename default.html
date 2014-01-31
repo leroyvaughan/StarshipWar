@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Leroy's Playground: Starship Wars</title>
+    
+    <meta content="GLV Consulting provides experienced Web Development." name="description" />
+    <meta content="seattle, web design, asp.net, glv, glvconsulting, web development, leroy vaughan" name="keywords" />
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Exo+2:800' rel='stylesheet' type='text/css'/>
+    <link href="assets/css/main.css" rel="Stylesheet" />
+
+    <script src="Scripts/jquery-1.11.0.min.js"></script>
+    <script src="Scripts/modernizr-2.5.3.js"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="/Scripts/respond.min.js"></script>
+    <![endif]-->
+
+<!--    <script src="/assets/js/require.js" data-main="nativeMain"></script>-->
+    <script src="assets/js/State.js"></script>
+    <script src="assets/js/EnemyStarship.js"></script>
+    <script src="assets/js/Stars.js"></script>
+    <script src="assets/js/nativeMain.js"></script>
+</head>
+<body>
+    <div id="bodyWrap">
+        <canvas id="myCanvas"></canvas>
+
+        <header id="header" class="iBlock">
+            <h1>- STARSHIP WAR -</h1>
+        </header>
+
+        <div class="clear"></div>
+
+        <div id="cWrap" class="posRel">
+            <div id="content" class="col-md-8">
+                <div id="shipDiv" class="posRel">
+                    <div id="cloak" class="starship">
+                        <div class="hitArea">&nbsp;</div>
+                    </div>
+                    <div id="ghost" class="faded starship">
+                        <div class="hitArea">&nbsp;</div>
+                    </div>
+                    <div id="scout" class="faded starship">
+                        <div class="hitArea">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="navBar" class="col-md-4">
+
+                <div id="scoreBoard">
+                    <span id="enemies">3</span> Enemies left
+                    
+                    <div id="shipDetails">
+                        <div id="cloakPnl">
+                            <div class="hdr">Cloak</div>
+                            <div class="wrap">
+                                <div>Status: <span class="status dynTxt">Shielded</span></div>
+                                <div>Health: <span class="health dynTxt"></span></div>
+                            </div>
+                        </div>
+
+                        <div id="ghostPnl">
+                            <div class="hdr">Ghost</div>
+                            <div class="wrap">
+                                <div>Status: <span class="status dynTxt">Shielded</span></div>
+                                <div>Health: <span class="health dynTxt"></span></div>
+                            </div>
+                        </div>
+
+                        <div id="scoutPnl">
+                            <div class="hdr">Scout</div>
+                            <div class="wrap">
+                                <div>Status: <span class="status dynTxt">Shielded</span></div>
+                                <div>Health: <span class="health dynTxt"></span></div>
+                                <!--<div><span class="damage dynTxt"></span><span> damage taken</span></div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+    <footer id="footer">
+        <div id="turretBounds" class="col-md-8">
+            <div id="playerTurret">
+                <img src="assets/img/playerTurret.png" />
+            </div>
+        </div>
+
+        <div class="col-md-4" id="playerConsole">
+            <div class="hdr">
+                <div>Choose your Weapon</div>
+            </div>
+            <div class="clear"></div>
+        
+            <div class="col-xs-6 btns">
+                <div id="rocketBtn" class="btn">&nbsp;</div>
+                <div>Rocket</div>
+            </div>
+            <div class="col-xs-6 btns">
+                <div id="laserBtn" class="btn">&nbsp;</div>
+                <div>Laser</div>
+            </div>
+        </div>
+    </footer>
+
+    <img id="rocketAnim" src="assets/img/rocketAnim.gif" />
+</body>
+</html>

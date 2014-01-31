@@ -1,0 +1,112 @@
+/* nav colors */
+$navColor1: #ee432e;
+$navColor2: #c63929;
+$navColor3: #b51700;
+$navColor4: #891100;
+
+/* variables */
+$imgSpec:  top left transparent no-repeat;
+
+@mixin FourColorGradient($color1, $color2, $color3, $color4){
+    background-image: -webkit-gradient(
+        linear, 
+        left top, 
+        left bottom, 
+        color-stop(0%, $color1), color-stop(50%, $color2), 
+        color-stop(50%, $color3), color-stop(100%, $color4));
+    background-image: -webkit-linear-gradient(top, $color1 0%, $color2 50%, $color3 50%, $color4 100%);
+    background-image: -moz-linear-gradient(top, $color1 0%, $color2 50%, $color3 50%, $color4 100%);
+    background-image: -ms-linear-gradient(top, $color1 0%, $color2 50%, $color3 50%, $color4 100%);
+    background-image: -o-linear-gradient(top, $color1 0%, $color2 50%, $color3 50%, $color4 100%);
+    background-image: linear-gradient(top, $color1 0%, $color2 50%, $color3 50%, $color4 100%);
+}
+
+@mixin ThreeColorGradient($color1, $color2, $color3){
+    background-image: -webkit-gradient(
+        linear, 
+        left top, 
+        left bottom, 
+        color-stop(0%, $color1), color-stop(50%, $color2), 
+        color-stop(100%, $color3));
+    background-image: -webkit-linear-gradient(top, $color1 0%, $color2 50%, $color3 100%);
+    background-image: -moz-linear-gradient(top, $color1 0%, $color2 50%, $color3 100%);
+    background-image: -ms-linear-gradient(top, $color1 0%, $color2 50%, $color3 100%);
+    background-image: -o-linear-gradient(top, $color1 0%, $color2 50%, $color3 100%);
+    background-image: linear-gradient(top, $color1 0%, $color2 50%, $color3 100%);
+}
+
+
+/* two color gradient */
+@mixin buttonSurface($color1, $color2){
+    background-image:   -webkit-gradient(
+        linear, left top, 
+        left bottom, 
+        color-stop(0%, $color1), 
+        color-stop(100%, $color2));
+        background-image: -webkit-linear-gradient(top, $color1 0%, $color2 100%);
+        background-image: -moz-linear-gradient(top, $color1 0%, $color2 100%);
+        background-image: -ms-linear-gradient(top, $color1 0%, $color2 100%);
+        background-image: -o-linear-gradient(top, $color1 0%, $color2 100%);
+        background-image: linear-gradient(top, $color1 0%, $color2 100%);
+}
+
+
+@mixin imgShadow{
+    $horiz: 4px;
+    $vert: 6px;
+    $blur: 7px;
+    $spread: -1px;
+    $imgShadowColor: #777;
+
+    box-shadow:$horiz $vert $blur $spread $imgShadowColor;
+        -moz-box-shadow:$horiz $vert $blur $spread $imgShadowColor;
+        -webkit-box-shadow:$horiz $vert $blur $spread $imgShadowColor;
+}
+
+
+/* mixin with default value for parameter [$borderColor]) */
+@mixin imgBorder($borderColor: #999){
+    border:1px solid $borderColor;
+    border-radius:3px;
+    -moz-border-radius:3px;
+}
+
+@mixin rndCorners($rnd){
+    border-radius:$rnd;
+    -moz-border-radius:$rnd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
