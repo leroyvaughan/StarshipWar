@@ -1,3 +1,35 @@
+/*****  STARSHIP RELATED STUFF ******************/
+.cloakAnim {
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  transition: 0.7s;
+  left: 5% !important; }
+
+.scoutAnim {
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+  right: 5% !important;
+  opacity: 1; }
+
+.ghostAnim {
+  opacity: 0;
+  -webkit-transition: opacity 2s ease-in;
+  -moz-transition: opacity 2s ease-in;
+  transition: opacity 2s ease-in;
+  opacity: 1; }
+
+.startError {
+  opacity: 0;
+  -webkit-transition: opacity 2s ease-in;
+  -moz-transition: opacity 2s ease-in;
+  transition: opacity 2s ease-in;
+  opacity: 1;
+  -webkit-transition: 2s;
+  -moz-transition: 2s;
+  transition: 2s;
+  opacity: 0; }
+
 .destructAnim {
   animation: showExplosion1 1.2s forwards;
   -webkit-animation: showExplosion1 1.2s forwards; }
@@ -58,27 +90,92 @@
   100% {
     opacity: 0; } }
 
-.cloakAnim {
-  -webkit-transition: 0.7s;
-  -moz-transition: 0.7s;
-  transition: 0.7s;
-  left: 5% !important; }
+.boomAnim {
+  animation: showExplosion1 0.8s forwards;
+  -webkit-animation: showExplosion1 0.8s forwards; }
 
-.scoutAnim {
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  transition: 0.3s;
-  right: 5% !important;
-  opacity: 1; }
+@keyframes showExplosion2 {
+  0% {
+    opacity: 1; }
 
-.ghostAnim {
-  opacity: 0;
-  -webkit-transition: opacity 2s ease-in;
-  -moz-transition: opacity 2s ease-in;
-  transition: opacity 2s ease-in;
-  opacity: 1; }
+  1% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0); }
 
-/* nav colors */
+  2% {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5); }
+
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1); }
+
+  99% {
+    opacity: 0; } }
+
+@-webkit-keyframes showExplosion2 {
+  0% {
+    opacity: 1; }
+
+  1% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0); }
+
+  2% {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5); }
+
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1); }
+
+  99% {
+    opacity: 0; } }
+
+/**************** MISC ANIMATIONS ********************/
+.chooseUrWeapon {
+  animation: chooseWeapon 0.3s steps(2) infinite;
+  -webkit-animation: chooseWeapon 0.3s steps(2) infinite; }
+
+@keyframes chooseWeapon {
+  from {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05); }
+
+  to {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1); } }
+
+@-webkit-keyframes chooseWeapon {
+  from {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05); }
+
+  to {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1); } }
+
+/* red colors */
 /* variables */
 /* two color gradient */
 /* mixin with default value for parameter [$borderColor]) */
@@ -144,8 +241,49 @@ h1 {
 #content {
   background-color: #000;
   /* starship elements */ }
+  #content #playerNotice {
+    border: 1px solid #333333;
+    border-radius: 15px;
+    background-color: #aaa;
+    height: auto;
+    margin-top: 5%;
+    padding: 20% 0;
+    position: absolute;
+    text-align: center;
+    z-index: 10; }
+    #content #playerNotice #startBtn {
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ee432e), color-stop(50%, #c63929), color-stop(100%, #b51700));
+      background-image: -webkit-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 100%);
+      background-image: -moz-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 100%);
+      background-image: -ms-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 100%);
+      background-image: -o-linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 100%);
+      background-image: linear-gradient(top, #ee432e 0%, #c63929 50%, #b51700 100%);
+      border: 1px solid yellow;
+      border-radius: 5px;
+      background-color: #c63929;
+      color: #ff0;
+      cursor: pointer;
+      font-family: arial;
+      font-weight: bold;
+      padding: 8px 3px;
+      margin: 0 auto;
+      width: 100px; }
+    #content #playerNotice #startDetails {
+      color: #111;
+      display: none;
+      font-size: 14px;
+      margin: 0 auto;
+      padding: 3%;
+      width: 80%; }
   #content #shipDiv {
-    margin-top: 25px; }
+    margin-top: 25px;
+    visibility: hidden; }
+    #content #shipDiv #targetNotice {
+      border: 1px dotted #ccc;
+      color: #ff0;
+      display: none;
+      position: absolute;
+      width: 100%; }
     #content #shipDiv .starship {
       background-size: 100% 100%;
       height: 150px;
@@ -153,6 +291,8 @@ h1 {
       width: 150px; }
       #content #shipDiv .starship .hitArea {
         cursor: pointer; }
+        #content #shipDiv .starship .hitArea .showHit {
+          opacity: 0; }
     #content #shipDiv #cloak {
       background: url(../img/cloak.png) top left transparent no-repeat;
       background-size: 100% 100%;
@@ -186,8 +326,6 @@ h1 {
         margin: 32% 0 0 14%;
         height: 41%;
         width: 73%; }
-  #content #rocketAnim {
-    z-index: -1; }
 
 #navBar {
   position: relative; }
@@ -232,7 +370,7 @@ h1 {
     #footer #playerConsole .hdr {
       margin: 0 auto;
       width: 80%; }
-      #footer #playerConsole .hdr div {
+      #footer #playerConsole .hdr #chooseWeapon {
         background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #555555), color-stop(50%, #eeeeee), color-stop(100%, #333333));
         background-image: -webkit-linear-gradient(top, #555555 0%, #eeeeee 50%, #333333 100%);
         background-image: -moz-linear-gradient(top, #555555 0%, #eeeeee 50%, #333333 100%);
@@ -261,4 +399,10 @@ h1 {
       background-image: url(../img/laserBtnGlow.png) !important; }
   #footer #playerTurret {
     position: absolute; }
+
+#preloadImgs {
+  left: -9999px;
+  top: 0px;
+  position: absolute;
+  z-index: -1; }
 

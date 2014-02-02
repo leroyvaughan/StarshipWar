@@ -8,7 +8,7 @@ $outerShipPos: 5%;
     transition: $transTime;
 }
 
-@mixin scaleImg($outerShipPos){
+@mixin scaleObj($outerShipPos){
     transform: scale($outerShipPos);
     -webkit-transform: scale($outerShipPos);
     -moz-transform: scale($outerShipPos);
@@ -22,34 +22,9 @@ $outerShipPos: 5%;
     -ms-transform: rotate($deg);
 }
 
-@mixin setBorder($brdr, $bRadius){
-    border: $brdr;
-    border-radius: $bRadius;
-}
-
-.destructAnim{
-    animation:showExplosion1 1.2s forwards;
-    -webkit-animation:showExplosion1 1.2s forwards;
-}
-    @keyframes showExplosion1
-    {
-        0%  {@include scaleImg(0)}
-        1%  {@include scaleImg(0.5)}
-        50% {@include scaleImg(1)}
-        80% {opacity:0.5}
-        100%{opacity:0}
-    }
-    @-webkit-keyframes showExplosion1 /* Safari and Chrome */
-    {
-        0%  {@include scaleImg(0)}
-        1%  {@include scaleImg(0.5)}
-        50% {@include scaleImg(1)}
-        80% {opacity:0.5}
-        90% {@include scaleImg(0.8)}
-        100%{opacity:0}
-    }
 
 
+/*****  STARSHIP RELATED STUFF ******************/
 .cloakAnim {
     @include shipAnimation(0.7s);
     left: $outerShipPos !important;
@@ -64,3 +39,76 @@ $outerShipPos: 5%;
     @include shipAnimation($fadeIn);
     opacity:1;
 }
+.startError{
+    opacity:0;
+    @include shipAnimation($fadeIn);
+    opacity:1;
+    @include shipAnimation(2s);
+    opacity:0;
+}
+
+.destructAnim{
+    animation:showExplosion1 1.2s forwards;
+    -webkit-animation:showExplosion1 1.2s forwards;
+}
+    @keyframes showExplosion1
+    {
+        0%  {@include scaleObj(0)}
+        1%  {@include scaleObj(0.5)}
+        50% {@include scaleObj(1)}
+        80% {opacity:0.5}
+        100%{opacity:0}
+    }
+    @-webkit-keyframes showExplosion1 /* Safari and Chrome */
+    {
+        0%  {@include scaleObj(0)}
+        1%  {@include scaleObj(0.5)}
+        50% {@include scaleObj(1)}
+        80% {opacity:0.5}
+        90% {@include scaleObj(0.8)}
+        100%{opacity:0}
+    }
+
+.boomAnim{
+    animation:showExplosion1 0.8s forwards;
+    -webkit-animation:showExplosion1 0.8s forwards;
+}
+    @keyframes showExplosion2
+    {
+        0%{ opacity:1 }
+        1%  {@include scaleObj(0)}
+        2%  {@include scaleObj(0.5)}
+        50% {@include scaleObj(1)}
+        99%{opacity:0}
+    }
+    @-webkit-keyframes showExplosion2
+    {
+        0%{ opacity:1 }
+        1%  {@include scaleObj(0)}
+        2%  {@include scaleObj(0.5)}
+        50% {@include scaleObj(1)}
+        99%{opacity:0}
+    }
+
+
+
+/**************** MISC ANIMATIONS ********************/
+
+.chooseUrWeapon{
+    animation:chooseWeapon 0.3s steps(2) infinite;
+    -webkit-animation:chooseWeapon 0.3s steps(2) infinite;
+}
+    @keyframes chooseWeapon
+    {
+        from {@include scaleObj(1.05)}
+        to  {@include scaleObj(1.1)}
+    }
+    @-webkit-keyframes chooseWeapon
+    {
+        from {@include scaleObj(1.05)}
+        to  {@include scaleObj(1.1)}
+    }
+
+
+
+

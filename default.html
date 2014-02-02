@@ -39,15 +39,32 @@
 
         <div id="cWrap" class="posRel">
             <div id="content" class="col-md-8">
+                <div id="playerNotice">
+                    <div id="startDetails">
+                        You have to choose your weapon first, then click on a ship to fire upon it.  Watch the right navbar to see the damage being dealt.  Watch the ship for changes in ship state.  That is all...
+                    </div>
+                    <div id="main">Loading...</div>
+                </div>
+
                 <div id="shipDiv" class="posRel">
+                    <div id="targetNotice">
+                        You have to choose your weapon first.
+                    </div>
+
                     <div id="cloak" class="starship">
-                        <div class="hitArea">&nbsp;</div>
+                        <div class="hitArea">
+                            <img class="showHit" src="assets/img/boom.png"/>
+                        </div>
                     </div>
                     <div id="ghost" class="faded starship">
-                        <div class="hitArea">&nbsp;</div>
+                        <div class="hitArea">
+                            <img class="showHit" src="assets/img/boom.png"/>
+                        </div>
                     </div>
                     <div id="scout" class="faded starship">
-                        <div class="hitArea">&nbsp;</div>
+                        <div class="hitArea">
+                            <img class="showHit" src="assets/img/boom.png"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -101,7 +118,7 @@
 
         <div class="col-md-4" id="playerConsole">
             <div class="hdr">
-                <div>Choose your Weapon</div>
+                <div id="chooseWeapon">Choose your Weapon</div>
             </div>
             <div class="clear"></div>
         
@@ -116,6 +133,17 @@
         </div>
     </footer>
 
-    <img id="rocketAnim" src="assets/img/rocketAnim.gif" />
+    <div id="preloadImgs">
+        <img id="rocketAnim" src="assets/img/boom.png" />
+        <img src="assets/img/cloak.png" />
+        <img src="assets/img/destruction.gif" />
+        <img src="assets/img/destruction2.gif" />
+        <img src="assets/img/ghost.png" />
+        <img src="assets/img/laserBtnGlow.png" />
+        <img src="assets/img/laserHit.png" />
+        <img src="assets/img/rocketAnim.gif" />
+        <img src="assets/img/rocketBtnGlow.png" />
+        <img src="assets/img/scout.png" />
+    </div>
 </body>
 </html>

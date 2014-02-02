@@ -57,9 +57,52 @@ h1{ color:#fff; }
 
     /* starship elements */
     $starshipSize: 150px;
+    
+    #playerNotice{
+        @include setBorder(1px solid #333, 15px);
+        background-color:#aaa;
+        height:auto;
+        margin-top:5%;
+        padding:20% 0;
+        position:absolute;
+        text-align:center;
+        z-index:10;
+
+
+        #startBtn{
+            @include ThreeColorGradient($Color1, $Color2, $Color3);
+            @include setBorder(1px solid #ff0, 5px);
+            background-color:#c63929;
+            color:#ff0;
+            cursor:pointer;
+            font-family: arial;
+            font-weight:bold;
+            padding:8px 3px;
+            margin:0 auto;
+            width:100px;
+        }
+        #startDetails{
+            color:#111;
+            display:none;
+            font-size:14px;
+            margin:0 auto;
+            padding:3%;
+            width:80%;
+        }
+    }
+
 
     #shipDiv{
         margin-top:25px;
+        visibility:hidden;
+
+        #targetNotice{
+            border:1px dotted #ccc;
+            color:#ff0;
+            display:none;
+            position:absolute;
+            width:100%;
+        }
 
         .starship{
             background-size: 100% 100%;
@@ -69,6 +112,8 @@ h1{ color:#fff; }
 
             .hitArea{
                 cursor:pointer;
+
+                .showHit{ opacity:0; }
             }
         }
 
@@ -112,9 +157,6 @@ h1{ color:#fff; }
         }
     }
 
-    #rocketAnim{
-        z-index:-1;
-    }
 
 }
 
@@ -170,7 +212,7 @@ h1{ color:#fff; }
             margin:0 auto;
             width:80%;
 
-            div{
+            #chooseWeapon{
                 @include ThreeColorGradient(#555, #eee, #333);
                 border:1px solid #ccc;
                 border-radius:5px;
@@ -188,6 +230,7 @@ h1{ color:#fff; }
             height:75px; width:75px;
         }
     }
+
     #rocketBtn{
         background: url(../img/rocketBtn.png) $imgSpec;
         &:hover{
@@ -208,6 +251,12 @@ h1{ color:#fff; }
 
 
 
+#preloadImgs{
+    left:-9999px;
+    top:0px;
+    position:absolute;
+    z-index:-1;
+}
 
 
 

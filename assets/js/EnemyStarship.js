@@ -1,6 +1,6 @@
 ﻿var StarshipWar = StarshipWar || {};
 
-StarshipWar.EnemyStarship = function (_typeOfShip, utils, _scoreBoard) {
+StarshipWar.EnemyStarship = function (_typeOfShip, _utils, _scoreBoard) {
     var baseUrl = 'assets/img/';
 
     var shipDetails = {
@@ -40,11 +40,18 @@ StarshipWar.EnemyStarship = function (_typeOfShip, utils, _scoreBoard) {
     var DisplayObject = $(CurrentShip.elem);
 
 
-    var TakeDamage = function () {
-        if (utils.isClearToFire()) {
-            var stateHasChanged = CurrentShip.CalculateDamage(utils.getDamageAmount());
+    var TakeDamage = function (curObj) {
+        if (_utils.isClearToFire()) {
+            var stateHasChanged = CurrentShip.CalculateDamage(_utils.getDamageAmount());
+            curObj.children().removeClass("boomAnim");
             _scoreBoard.updateHealth(CurrentShip.getHealth());
             _scoreBoard.setStatus(CurrentShip.getStatus());
+
+            setTimeout(function () {
+                if (!CurrentShip.isDestroyed()) {
+                    curObj.children().addClass("boomAnim");
+                }
+            }, 200);
 
             if (stateHasChanged) {
                 //this means the ship health determines an img change:  unshielded or destroyed
@@ -53,7 +60,6 @@ StarshipWar.EnemyStarship = function (_typeOfShip, utils, _scoreBoard) {
                     DisplayObject.addClass("destructAnim");
                     _scoreBoard.decrementEnemies();
                     _scoreBoard.updateHealth(0);
-
                 }
             }
         }
@@ -67,7 +73,7 @@ StarshipWar.EnemyStarship = function (_typeOfShip, utils, _scoreBoard) {
 
     //click on ship to fire weapon on it
     $(CurrentShip.elem + " .hitArea").click(function () {
-        TakeDamage();
+        TakeDamage($(this));
     });
 
     //public properties
