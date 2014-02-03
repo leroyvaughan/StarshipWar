@@ -12,6 +12,12 @@ StarshipWar.Utils = function () {
     var _curDamage = 0;
     var _wHdr = $("#chooseWeapon");
     var _blinker = "chooseUrWeapon";
+    var numOfStarships = 0;
+
+    var showGameOverDisplay = function () {
+        
+
+    };
 
     //public setter/getter(s)
     this.setCurrentWeapon = function (curWeapon) {
@@ -40,6 +46,31 @@ StarshipWar.Utils = function () {
         }
     }
 
+    this.incrementStarships = function () {
+        numOfStarships++;
+    };
+
+    this.decrementStarships = function () {
+        if (numOfStarships > 0) {
+            numOfStarships--;
+        }
+        if(numOfStarships === 0) {
+            //probably want to create an observer class??
+            //this code below should be a call t0 showGameOverDisplay(); ??
+            setTimeout(function () {
+                $("#playerNotice").show();
+                $("#gameDetails").html("You Win. Game Over...");
+                $("#gameBtn").html("reset").click(function () {
+                    document.location.reload();
+                });
+            }, 1500);
+        }
+    };
+
+    this.getNumOfStarships = function () {
+        return numOfStarships;
+    };
+
     return this;
 };
 
@@ -56,11 +87,11 @@ StarshipWar.main = function () {
         var laserBtn = $("#laserBtn");
 
         //initial game details
-        $("#startDetails").show();
-        var startBtn = "<div id='startBtn'>Start Game</div>";
-        $("#playerNotice #main").html(startBtn);
+        $("#gameDetails").show();
+        var gameBtn = "<div id='gameBtn'>Start Game</div>";
+        $("#playerNotice #main").html(gameBtn);
 
-        $("#startBtn").click(function () {
+        $("#gameBtn").click(function () {
             $("#targetNotice").show();
             $("#playerNotice").hide();
             $("#shipDiv").css("visibility", 'visible');
@@ -123,9 +154,9 @@ StarshipWar.main = function () {
                 "transform": 'scaleX(' + xFlip + ')'
             });
         });
-    };
+    }();
 
-    StarshipWar.setUI(new PlayerConsole());
+    StarshipWar.setUI();
 };
 
 
@@ -134,16 +165,33 @@ StarshipWar.Display = function () {
 
     this.setCurrentShip = function(shipName){
         _curShip = "#" + shipName + "Pnl";
-        _healthElem = " .health";
-        _statusElem = " .status";
+        _healthElem = $(_curShip + " .health");
+        _statusElem = $(_curShip + " .status");
     };
 
     this.updateHealth = function (_health) {
-        $(_curShip + _healthElem).html(_health);
+        _healthElem.html(_health).removeClass("dmgHealthAnim");
+
+        setTimeout(function () {
+            _healthElem.addClass("dmgHealthAnim");
+        }, 200);
+
+        if (_health === 0) {
+        _healthElem.css("color", "red");
+        }
     }
 
     this.setStatus = function (_status) {
-        $(_curShip + _statusElem).html(_status);
+        var txtColor = "#ff0";
+        var txt = _status.toLowerCase();
+
+        if (txt === "destroyed...") {
+            txtColor = "red";
+        }
+        else if (txt === "unshielded") {
+            txtColor = "orange";
+        }
+        _statusElem.html(_status).css("color", txtColor);
     };
 
     this.decrementEnemies = function () {

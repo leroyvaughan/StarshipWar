@@ -90,6 +90,23 @@ $outerShipPos: 5%;
         99%{opacity:0}
     }
 
+.dmgHealthAnim{
+    animation:dmgHealth 1.5s;
+    -webkit-animation:dmgHealth 1.5s;
+}
+    @-webkit-keyframes dmgHealth
+    {
+        0%  {color:red;}
+        50% {color:#ff0;}
+        99% {color:red;}
+    }
+    @keyframes dmgHealth
+    {
+        0%  {color:red;}
+        50% {color:#ff0;}
+        99% {color:red;}
+    }
+
 
 
 /**************** MISC ANIMATIONS ********************/

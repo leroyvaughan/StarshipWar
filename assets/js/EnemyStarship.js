@@ -60,6 +60,9 @@ StarshipWar.EnemyStarship = function (_typeOfShip, _utils, _scoreBoard) {
                     DisplayObject.addClass("destructAnim");
                     _scoreBoard.decrementEnemies();
                     _scoreBoard.updateHealth(0);
+
+                    //probably want to create an observer class??
+                    _utils.decrementStarships();
                 }
             }
         }
@@ -89,5 +92,6 @@ StarshipWar.EnemyStarship = function (_typeOfShip, _utils, _scoreBoard) {
 
         _scoreBoard.setCurrentShip(CurrentShip.shipType);
         _scoreBoard.updateHealth(CurrentShip.getHealth());
+        _utils.incrementStarships();
     })();
 };
